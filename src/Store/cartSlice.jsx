@@ -1,4 +1,4 @@
-const { createSlice } = require("@reduxjs/toolkit");
+import { createSlice } from "@reduxjs/toolkit";
 
 
 const cartSlice = createSlice({
@@ -6,6 +6,7 @@ const cartSlice = createSlice({
     initialState:[],
     reducers:{
         add(state,action){
+            // this state is the initial state that we declared above an empty array 
             state.push(action.payload)
         },
         remove(state,action){
