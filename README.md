@@ -48,7 +48,7 @@ This project is open source and available under the [MIT License](https://github
 
 ## Acknowledgements
 
-Special thanks to the authors and maintainers of PNPM, Vite, Redux Toolkit, and the Fake Store API for providing the tools and resources that made this project possible.
+Special thanks to the authors and maintainers of PNPM, Vite, Redux Toolkit, and the Fake Store API & [coder's gyan](https://www.youtube.com/watch?v=XwGNhppX4as&ab_channel=Coder%27sGyan) for providing the tools and resources that made this project possible.
 
 
 
