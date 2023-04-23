@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { add } from '../Store/cartSlice'
 import { useDispatch } from 'react-redux'
+import { fetchProducts } from '../Store/productSlice'
 
 const Products = () => {
 
@@ -10,13 +11,13 @@ const Products = () => {
     const [products,setProducts] = useState([])
 
     useEffect(()=>{
-        const fetchProducts = async () =>{
-            const res = await fetch('https://fakestoreapi.com/products')
-            const data = await res.json()
-            // console.log(data)
-            setProducts(data)
-        }
-        fetchProducts()
+        dispatch(fetchProducts())
+        // const fetchProducts = async () =>{
+        //     const res = await fetch('https://fakestoreapi.com/products')
+        //     const data = await res.json()
+        //     setProducts(data)
+        // }
+        // fetchProducts()
     },[])
 
     const handleAdd = (product) => {
