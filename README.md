@@ -1,5 +1,5 @@
 # E-Commerce Website
-<img src="https://github.com/himanshu1221/Redux-Toolkit-Practice/blob/master/public/E-commerce.png" alt="Logo">
+<img src="https://github.com/himanshu1221/Redux-Toolkit-Practice/blob/master/E-commerce.png" alt="Logo">
 
 This is an E-Commerce website built using modern web development tools and technologies, including PNPM, Vite, and JavaScript. The website makes use of the Fake Store API as a data source for product information and is primarily designed to practice Redux Toolkit for state management.
 
