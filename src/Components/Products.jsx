@@ -1,55 +1,54 @@
-import React from 'react'
-import { useEffect } from 'react'
-import { useState } from 'react'
-import { add } from '../Store/cartSlice'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchProducts } from '../Store/productSlice'
-import { STATUSES } from '../Store/productSlice'
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import { add } from "../Store/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "../Store/productSlice";
+import { STATUSES } from "../Store/productSlice";
 
 const Products = () => {
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch()
+  const { data: products, status } = useSelector((state) => state.product);
 
-    const { data:products , status} = useSelector((state)=> state.product)
+  // const [products,setProducts] = useState([])
 
-    // const [products,setProducts] = useState([])
+  useEffect(() => {
+    dispatch(fetchProducts());
+    // const fetchProducts = async () =>{
+    //     const res = await fetch('https://fakestoreapi.com/products')
+    //     const data = await res.json()
+    //     setProducts(data)
+    // }
+    // fetchProducts()
+  }, []);
 
-    useEffect(()=>{
-        dispatch(fetchProducts())
-        // const fetchProducts = async () =>{
-        //     const res = await fetch('https://fakestoreapi.com/products')
-        //     const data = await res.json()
-        //     setProducts(data)
-        // }
-        // fetchProducts()
-    },[])
+  const handleAdd = (product) => {
+    dispatch(add(product));
+  };
 
-    const handleAdd = (product) => {
-        dispatch(add(product))
-    }
+  if (status === STATUSES.LOADING) {
+    return <h2>Loading...</h2>;
+  }
 
-    if(status === STATUSES.LOADING){
-        return <h2>Loading...</h2>
-    }
-
-    if(status === STATUSES.ERROR){
-        return <h2>Something went wrong...</h2>
-    }
+  if (status === STATUSES.ERROR) {
+    return <h2>Something went wrong...</h2>;
+  }
 
   return (
-    <div className='productsWrapper'>
-        {
-            products.map((product) => (
-                <div className='card' key={product.id}>
-                    <img src={product.image} alt="" />
-                    <h4>{product.title}</h4>
-                    <h5>{product.price} $</h5>
-                    <button onClick={()=>handleAdd(product)} className='btn'>add to Cart</button>
-                </div>
-            ))
-        }
+    <div className="productsWrapper">
+      {products.map((product) => (
+        <div className="card" key={product.id}>
+          <img src={product.image} alt="" />
+          <h4>{product.title}</h4>
+          <h5>{product.price} $</h5>
+          <button onClick={() => handleAdd(product)} className="btn">
+            Add to Cart
+          </button>
+        </div>
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default Products
+export default Products;

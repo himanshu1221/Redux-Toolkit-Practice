@@ -1,27 +1,31 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-      'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-      'Helvetica Neue', sans-serif;
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 20px;
   background: whitesmoke;
 }
+
 img {
   height: 80px;
 }
+
 .card {
   background: white;
   padding: 20px;
   text-align: center;
   border-radius: 10px;
 }
+
 .productsWrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
 }
+
 .btn {
   border: none;
   outline: none;
@@ -41,11 +45,13 @@ img {
 .heading {
   padding: 25px 0;
 }
+
 .cartCount {
   font-weight: bold;
   text-transform: uppercase;
   margin-left: 40px;
 }
+
 .navLink {
   text-decoration: none;
   color: black;
@@ -60,4 +66,69 @@ img {
   margin-bottom: 20px;
   padding: 14px;
   border-radius: 5px;
+}
+
+/* Media Query */
+/* For screen smaller than 768px */
+
+@media screen and (max-width: 768px) {
+  .productsWrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .heading {
+    padding: 10px 0;
+  }
+
+  .cartCount {
+    margin-left: 10px;
+    font-size: 12px;
+  }
+
+  .navLink {
+    margin-left: 10px;
+    font-size: 12px;
+  }
+}
+
+/* For screen smaller than 480px */
+
+@media screen and (max-width: 480px) {
+  body {
+    padding: 0;
+  }
+
+  .productsWrapper {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .heading {
+    padding: 5px 0;
+    font-size: 18px;
+  }
+
+  .cartCard {
+    display: block;
+  }
+
+  .cartCount {
+    margin-left: 5px;
+    font-size: 10px;
+    padding: 5px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 6px;
+  }
 }
